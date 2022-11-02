@@ -260,6 +260,47 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
+          Positioned(
+            top: 430,
+            right: 0,
+            left: 0,
+            child: Center(
+              child: Container(
+                padding: EdgeInsets.all(15.0),
+                height: 90,
+                width: 90,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        //그랴데이션
+                        colors: [
+                          Colors.orange,
+                          Colors.red,
+                        ],
+                        begin: Alignment.topLeft, //그라데이션 방향
+                        end: Alignment.bottomRight),
+                    borderRadius: BorderRadius.circular(30.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        spreadRadius: 1,
+                        blurRadius: 1,
+                        offset: Offset(0, 1),
+                      ),
+                    ],
+                  ),
+                  child: Icon(
+                    Icons.arrow_forward,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
