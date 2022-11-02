@@ -60,6 +60,82 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
+          Positioned(
+            top: 180,
+            child: Container(
+              padding: EdgeInsets.all(20.0),
+              height: 280,
+              width: MediaQuery.of(context).size.width - 40,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3),
+                      blurRadius: 15,
+                      spreadRadius: 5,
+                    ),
+                  ]),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isSignupScreen = false;
+                      });
+                    },
+                    child: Column(
+                      children: [
+                        Text(
+                          'LOGIN',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: !isSignupScreen ? Colors.black : Colors.grey,
+                          ),
+                        ),
+                        if (!isSignupScreen)
+                          Container(
+                            margin: EdgeInsets.only(top: 3),
+                            height: 2,
+                            width: 55,
+                            color: Colors.orange,
+                          ),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isSignupScreen = true;
+                      });
+                    },
+                    child: Column(
+                      children: [
+                        Text(
+                          'SIGNUP',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: isSignupScreen ? Colors.black : Colors.grey,
+                          ),
+                        ),
+                        if (isSignupScreen)
+                          Container(
+                            margin: EdgeInsets.only(top: 3),
+                            height: 2,
+                            width: 55,
+                            color: Colors.orange,
+                          ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
