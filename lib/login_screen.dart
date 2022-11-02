@@ -49,8 +49,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 5,
                   ),
-                  Text(
-                    'Sign up continue',
+                  Text( isSignupScreen ?
+                    'Sign up continue' : 'Sign in continue',
                     style: TextStyle(
                       letterSpacing: 1.0,
                       color: Colors.black,
