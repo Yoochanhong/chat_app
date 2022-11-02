@@ -185,7 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             TextFormField(
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
-                                  Icons.account_circle,
+                                  Icons.mail_rounded,
                                   color: Colors.grey[300],
                                 ),
                                 enabledBorder: OutlineInputBorder(
@@ -208,7 +208,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                 ),
-                                hintText: '이름',
+                                hintText: '이메일',
                                 hintStyle: TextStyle(
                                   fontSize: 14,
                                   color: Colors.grey,
@@ -222,7 +222,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             TextFormField(
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
-                                  Icons.account_circle,
+                                  Icons.lock,
                                   color: Colors.grey[300],
                                 ),
                                 enabledBorder: OutlineInputBorder(
@@ -245,7 +245,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                 ),
-                                hintText: '이름',
+                                hintText: '비밀번호',
                                 hintStyle: TextStyle(
                                   fontSize: 14,
                                   color: Colors.grey,
@@ -266,7 +266,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             TextFormField(
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
-                                  Icons.account_circle,
+                                  Icons.mail_rounded,
                                   color: Colors.grey[300],
                                 ),
                                 enabledBorder: OutlineInputBorder(
@@ -289,7 +289,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                 ),
-                                hintText: '이름',
+                                hintText: '이메일',
                                 hintStyle: TextStyle(
                                   fontSize: 14,
                                   color: Colors.grey,
@@ -303,7 +303,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             TextFormField(
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
-                                  Icons.account_circle,
+                                  Icons.lock,
                                   color: Colors.grey[300],
                                 ),
                                 enabledBorder: OutlineInputBorder(
@@ -326,7 +326,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                 ),
-                                hintText: '이름',
+                                hintText: '비밀번호',
                                 hintStyle: TextStyle(
                                   fontSize: 14,
                                   color: Colors.grey,
