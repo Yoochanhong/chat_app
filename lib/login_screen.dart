@@ -77,59 +77,183 @@ class _LoginScreenState extends State<LoginScreen> {
                       spreadRadius: 5,
                     ),
                   ]),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              child: Column(
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        isSignupScreen = false;
-                      });
-                    },
-                    child: Column(
-                      children: [
-                        Text(
-                          'LOGIN',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: !isSignupScreen ? Colors.black : Colors.grey,
-                          ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isSignupScreen = false;
+                          });
+                        },
+                        child: Column(
+                          children: [
+                            Text(
+                              'LOGIN',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: !isSignupScreen
+                                    ? Colors.black
+                                    : Colors.grey,
+                              ),
+                            ),
+                            if (!isSignupScreen)
+                              Container(
+                                margin: EdgeInsets.only(top: 3),
+                                height: 2,
+                                width: 55,
+                                color: Colors.orange,
+                              ),
+                          ],
                         ),
-                        if (!isSignupScreen)
-                          Container(
-                            margin: EdgeInsets.only(top: 3),
-                            height: 2,
-                            width: 55,
-                            color: Colors.orange,
-                          ),
-                      ],
-                    ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isSignupScreen = true;
+                          });
+                        },
+                        child: Column(
+                          children: [
+                            Text(
+                              'SIGNUP',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color:
+                                    isSignupScreen ? Colors.black : Colors.grey,
+                              ),
+                            ),
+                            if (isSignupScreen)
+                              Container(
+                                margin: EdgeInsets.only(top: 3),
+                                height: 2,
+                                width: 55,
+                                color: Colors.orange,
+                              ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        isSignupScreen = true;
-                      });
-                    },
-                    child: Column(
-                      children: [
-                        Text(
-                          'SIGNUP',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: isSignupScreen ? Colors.black : Colors.grey,
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
+                    child: Form(
+                      child: Column(
+                        children: [
+                          TextFormField(
+                            decoration: InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.account_circle,
+                                color: Colors.grey[300],
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(
+                                    35.0,
+                                  ),
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(
+                                    35.0,
+                                  ),
+                                ),
+                              ),
+                              hintText: '이름',
+                              hintStyle: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey,
+                              ),
+                              contentPadding: EdgeInsets.all(10),
+                            ),
                           ),
-                        ),
-                        if (isSignupScreen)
-                          Container(
-                            margin: EdgeInsets.only(top: 3),
-                            height: 2,
-                            width: 55,
-                            color: Colors.orange,
+                          SizedBox(
+                            height: 8,
                           ),
-                      ],
+                          TextFormField(
+                            decoration: InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.account_circle,
+                                color: Colors.grey[300],
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(
+                                    35.0,
+                                  ),
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(
+                                    35.0,
+                                  ),
+                                ),
+                              ),
+                              hintText: '이름',
+                              hintStyle: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey,
+                              ),
+                              contentPadding: EdgeInsets.all(10),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.account_circle,
+                                color: Colors.grey[300],
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(
+                                    35.0,
+                                  ),
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(
+                                    35.0,
+                                  ),
+                                ),
+                              ),
+                              hintText: '이름',
+                              hintStyle: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey,
+                              ),
+                              contentPadding: EdgeInsets.all(10),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
