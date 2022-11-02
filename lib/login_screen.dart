@@ -49,8 +49,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 5,
                   ),
-                  Text( isSignupScreen ?
-                    'Sign up continue' : 'Sign in continue',
+                  Text(
+                    isSignupScreen ? 'Sign up continue' : 'Sign in continue',
                     style: TextStyle(
                       letterSpacing: 1.0,
                       color: Colors.black,
@@ -64,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
             top: 180,
             child: Container(
               padding: EdgeInsets.all(20.0),
-              height: 280,
+              height: isSignupScreen ? 280 : 230,
               width: MediaQuery.of(context).size.width - 40,
               margin: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
@@ -139,129 +139,211 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ],
                   ),
-                  Container(
-                    margin: EdgeInsets.only(top: 20),
-                    child: Form(
-                      child: Column(
-                        children: [
-                          TextFormField(
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.account_circle,
-                                color: Colors.grey[300],
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.grey,
+                  if (isSignupScreen)
+                    Container(
+                      margin: EdgeInsets.only(top: 20),
+                      child: Form(
+                        child: Column(
+                          children: [
+                            TextFormField(
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.account_circle,
+                                  color: Colors.grey[300],
                                 ),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(
-                                    35.0,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      35.0,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.grey,
-                                ),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(
-                                    35.0,
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      35.0,
+                                    ),
                                   ),
                                 ),
+                                hintText: '이름',
+                                hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey,
+                                ),
+                                contentPadding: EdgeInsets.all(10),
                               ),
-                              hintText: '이름',
-                              hintStyle: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey,
-                              ),
-                              contentPadding: EdgeInsets.all(10),
                             ),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          TextFormField(
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.account_circle,
-                                color: Colors.grey[300],
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.grey,
-                                ),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(
-                                    35.0,
-                                  ),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.grey,
-                                ),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(
-                                    35.0,
-                                  ),
-                                ),
-                              ),
-                              hintText: '이름',
-                              hintStyle: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey,
-                              ),
-                              contentPadding: EdgeInsets.all(10),
+                            SizedBox(
+                              height: 8,
                             ),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          TextFormField(
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.account_circle,
-                                color: Colors.grey[300],
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.grey,
+                            TextFormField(
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.account_circle,
+                                  color: Colors.grey[300],
                                 ),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(
-                                    35.0,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      35.0,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.grey,
-                                ),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(
-                                    35.0,
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      35.0,
+                                    ),
                                   ),
                                 ),
+                                hintText: '이름',
+                                hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey,
+                                ),
+                                contentPadding: EdgeInsets.all(10),
                               ),
-                              hintText: '이름',
-                              hintStyle: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey,
-                              ),
-                              contentPadding: EdgeInsets.all(10),
                             ),
-                          ),
-                        ],
+                            SizedBox(
+                              height: 8,
+                            ),
+                            TextFormField(
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.account_circle,
+                                  color: Colors.grey[300],
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      35.0,
+                                    ),
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      35.0,
+                                    ),
+                                  ),
+                                ),
+                                hintText: '이름',
+                                hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey,
+                                ),
+                                contentPadding: EdgeInsets.all(10),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
+                  if (!isSignupScreen)
+                    Container(
+                      margin: EdgeInsets.only(top: 20),
+                      child: Form(
+                        child: Column(
+                          children: [
+                            TextFormField(
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.account_circle,
+                                  color: Colors.grey[300],
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      35.0,
+                                    ),
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      35.0,
+                                    ),
+                                  ),
+                                ),
+                                hintText: '이름',
+                                hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey,
+                                ),
+                                contentPadding: EdgeInsets.all(10),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            TextFormField(
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.account_circle,
+                                  color: Colors.grey[300],
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      35.0,
+                                    ),
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      35.0,
+                                    ),
+                                  ),
+                                ),
+                                hintText: '이름',
+                                hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey,
+                                ),
+                                contentPadding: EdgeInsets.all(10),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                 ],
               ),
             ),
           ),
           Positioned(
-            top: 430,
+            top: isSignupScreen ? 430 : 370,
             right: 0,
             left: 0,
             child: Center(
@@ -307,7 +389,9 @@ class _LoginScreenState extends State<LoginScreen> {
             left: 0,
             child: Column(
               children: [
-                Text('or SignUp with Google'),
+                Text(isSignupScreen
+                    ? 'or SignUp with Google'
+                    : 'or SignIn with Google'),
                 SizedBox(
                   height: 10,
                 ),
