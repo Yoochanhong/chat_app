@@ -301,6 +301,32 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
+          Positioned(
+            top: MediaQuery.of(context).size.height - 125,
+            right: 0,
+            left: 0,
+            child: Column(
+              children: [
+                Text('or SignUp with Google'),
+                SizedBox(
+                  height: 10,
+                ),
+                TextButton.icon(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    primary: Colors.white,
+                    minimumSize: Size(130, 40),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    backgroundColor: Colors.red[400],
+                  ),
+                  icon: Icon(Icons.add),
+                  label: Text(' Google'),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
