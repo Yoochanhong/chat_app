@@ -72,15 +72,16 @@ class _LoginScreenState extends State<LoginScreen> {
               width: MediaQuery.of(context).size.width - 40,
               margin: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.3),
-                      blurRadius: 15,
-                      spreadRadius: 5,
-                    ),
-                  ]),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    blurRadius: 15,
+                    spreadRadius: 5,
+                  ),
+                ],
+              ),
               child: Column(
                 children: [
                   Row(
@@ -116,9 +117,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          setState(() {
-                            isSignupScreen = true;
-                          });
+                          setState(
+                            () {
+                              isSignupScreen = true;
+                            },
+                          );
                         },
                         child: Column(
                           children: [
@@ -150,6 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Column(
                           children: [
                             TextFormField(
+                              key: ValueKey(1),
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
@@ -187,6 +191,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 8,
                             ),
                             TextFormField(
+                              key: ValueKey(2),
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.mail_rounded,
@@ -224,6 +229,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 8,
                             ),
                             TextFormField(
+                              key: ValueKey(3),
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.lock,
@@ -268,6 +274,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Column(
                           children: [
                             TextFormField(
+                              key: ValueKey(4),
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.mail_rounded,
@@ -305,6 +312,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 8,
                             ),
                             TextFormField(
+                              key: ValueKey(5),
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.lock,
