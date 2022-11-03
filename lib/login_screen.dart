@@ -94,6 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
               child: SingleChildScrollView(
+                padding: EdgeInsets.only(bottom: 20),
                 child: Column(
                   children: [
                     Row(
