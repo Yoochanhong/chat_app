@@ -1,3 +1,5 @@
+import 'package:chat_app/chat_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -8,6 +10,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final authentication = FirebaseAuth.instance;
   bool isSignupScreen = true;
   final formKey = GlobalKey<FormState>();
   String userName = '';
@@ -225,7 +228,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   keyboardType: TextInputType.emailAddress,
                                   key: ValueKey(2),
                                   validator: (value) {
-                                    if (value!.isEmpty || !value.contains('@')) {
+                                    if (value!.isEmpty ||
+                                        !value.contains('@')) {
                                       return '이메일 주소를 똑바로 입력해주세요.';
                                     }
                                     return null;
@@ -334,7 +338,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 TextFormField(
                                   key: ValueKey(4),
                                   validator: (value) {
-                                    if (value!.isEmpty || !value.contains('@')) {
+                                    if (value!.isEmpty ||
+                                        !value.contains('@')) {
                                       return '이메일 주소를 똑바로 입력해주세요.';
                                     }
                                     return null;
@@ -447,11 +452,35 @@ class _LoginScreenState extends State<LoginScreen> {
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: GestureDetector(
-                    onTap: () {
-                      tryValidation();
-                      print(userName);
-                      print(userEmail);
-                      print(userPassword);
+                    onTap: () async {
+                      if (isSignupScreen) {
+                        tryValidation();
+                        try {
+                          final newUser = await authentication
+                              .createUserWithEmailAndPassword(
+                            email: userEmail,
+                            password: userPassword,
+                          );
+                          if (newUser.user != null) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return ChatScreen();
+                                },
+                              ),
+                            );
+                          }
+                        } catch (e) {
+                          print(e);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('이메일과 비밀번호를 확인해주세요.'),
+                              backgroundColor: Colors.blue,
+                            ),
+                          );
+                        }
+                      }
                     },
                     child: Container(
                       decoration: BoxDecoration(
