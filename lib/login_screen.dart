@@ -347,6 +347,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   onSaved: (value) {
                                     userEmail = value!;
                                   },
+                                  onChanged: (value) {
+                                    userEmail = value;
+                                  },
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
                                       Icons.mail_rounded,
@@ -393,6 +396,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   },
                                   onSaved: (value) {
                                     userPassword = value!;
+                                  },
+                                  onChanged: (value) {
+                                    userPassword = value;
                                   },
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
@@ -479,6 +485,28 @@ class _LoginScreenState extends State<LoginScreen> {
                               backgroundColor: Colors.blue,
                             ),
                           );
+                        }
+                      }
+                      if (!isSignupScreen) {
+                        tryValidation();
+                        try {
+                          final newUser =
+                          await authentication.signInWithEmailAndPassword(
+                            email: userEmail,
+                            password: userPassword,
+                          );
+                          if (newUser.user != null) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return ChatScreen();
+                                },
+                              ),
+                            );
+                          }
+                        } catch (e){
+                          print(e);
                         }
                       }
                     },
