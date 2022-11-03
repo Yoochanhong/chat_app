@@ -222,6 +222,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   height: 8,
                                 ),
                                 TextFormField(
+                                  keyboardType: TextInputType.emailAddress,
                                   key: ValueKey(2),
                                   validator: (value) {
                                     if (value!.isEmpty || !value.contains('@')) {
