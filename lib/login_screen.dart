@@ -154,6 +154,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             TextFormField(
                               key: ValueKey(1),
+                              validator: (value) {
+                                if (value!.isEmpty || value.length < 4) {
+                                  return '4글자 이상 입력해주세요.';
+                                }
+                                return null;
+                              },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
@@ -192,6 +198,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             TextFormField(
                               key: ValueKey(2),
+                              validator: (value) {
+                                if (value!.isEmpty || value.contains('@')) {
+                                  return '이메일 주소를 똑바로 입력해주세요.';
+                                }
+                                return null;
+                              },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.mail_rounded,
@@ -230,6 +242,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             TextFormField(
                               key: ValueKey(3),
+                              validator: (value) {
+                                if (value!.isEmpty || value.length < 6) {
+                                  return '비밀번호는 6자리 이상으로 입력해주세요.';
+                                }
+                                return null;
+                              },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.lock,
@@ -275,6 +293,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             TextFormField(
                               key: ValueKey(4),
+                              validator: (value) {
+                                if (value!.isEmpty || value.contains('@')) {
+                                  return '이메일 주소를 똑바로 입력해주세요.';
+                                }
+                                return null;
+                              },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.mail_rounded,
@@ -313,6 +337,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             TextFormField(
                               key: ValueKey(5),
+                              validator: (value) {
+                                if (value!.isEmpty || value.length < 6) {
+                                  return '비밀번호는 6자리 이상으로 입력해주세요.';
+                                }
+                                return null;
+                              },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.lock,
