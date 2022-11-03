@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
               duration: Duration(milliseconds: 500),
               curve: Curves.easeIn,
               padding: EdgeInsets.all(20.0),
-              height: isSignupScreen ? 280 : 230,
+              height: isSignupScreen ? 280 : 250,
               width: MediaQuery.of(context).size.width - 40,
               margin: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
@@ -357,7 +357,7 @@ class _LoginScreenState extends State<LoginScreen> {
           AnimatedPositioned(
             duration: Duration(milliseconds: 500),
             curve: Curves.easeIn,
-            top: isSignupScreen ? 430 : 370,
+            top: isSignupScreen ? 420 : 390,
             right: 0,
             left: 0,
             child: Center(
