@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -12,18 +12,19 @@ class _ChatScreenState extends State<ChatScreen> {
   final authentication = FirebaseAuth.instance;
   User? loggedUser;
 
-  void getCurrentUser(){
+  void getCurrentUser() {
     try {
       final user = authentication.currentUser;
       if (user != null) {
         loggedUser = user;
         print(loggedUser!.email);
       }
-    }catch(e){
+    } catch (e) {
       print(e);
     }
   }
-  void initState(){
+
+  void initState() {
     super.initState();
     getCurrentUser();
   }
@@ -33,6 +34,17 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Chat Screen'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              authentication.signOut();
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.exit_to_app_sharp,
+            ),
+          ),
+        ],
       ),
       body: Center(
         child: Text('Chat Screen'),
