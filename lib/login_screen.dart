@@ -147,8 +147,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                        isSignupScreen ? Colors.black : Colors.grey,
+                                    color: isSignupScreen
+                                        ? Colors.black
+                                        : Colors.grey,
                                   ),
                                 ),
                                 if (isSignupScreen)
@@ -467,8 +468,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            Positioned(
-              top: MediaQuery.of(context).size.height - 125,
+            AnimatedPositioned(
+              duration: Duration(milliseconds: 500),
+              curve: Curves.easeIn,
+              top: isSignupScreen
+                  ? MediaQuery.of(context).size.height - 125
+                  : MediaQuery.of(context).size.height - 165,
               right: 0,
               left: 0,
               child: Column(
