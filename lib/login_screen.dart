@@ -11,6 +11,13 @@ class _LoginScreenState extends State<LoginScreen> {
   bool isSignupScreen = true;
   final formKey = GlobalKey<FormState>();
 
+  void tryValidation(){
+    final isVaild = formKey.currentState!.validate();
+    if (isVaild){
+      formKey.currentState!.save();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -151,6 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Container(
                       margin: EdgeInsets.only(top: 20),
                       child: Form(
+                        key: formKey,
                         child: Column(
                           children: [
                             TextFormField(
@@ -290,6 +298,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Container(
                       margin: EdgeInsets.only(top: 20),
                       child: Form(
+                        key: formKey,
                         child: Column(
                           children: [
                             TextFormField(
