@@ -10,6 +10,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool isSignupScreen = true;
   final formKey = GlobalKey<FormState>();
+  String userName = '';
+  String userEmail = '';
+  String userPassword = '';
 
   void tryValidation(){
     final isVaild = formKey.currentState!.validate();
@@ -163,6 +166,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             TextFormField(
                               key: ValueKey(1),
+                              onSaved: (value) {
+                                userName = value!;
+                              },
                               validator: (value) {
                                 if (value!.isEmpty || value.length < 4) {
                                   return '4글자 이상 입력해주세요.';
@@ -213,6 +219,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 }
                                 return null;
                               },
+                              onSaved: (value) {
+                                userEmail = value!;
+                              },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.mail_rounded,
@@ -256,6 +265,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   return '비밀번호는 6자리 이상으로 입력해주세요.';
                                 }
                                 return null;
+                              },
+                              onSaved: (value){
+                                userPassword = value!;
                               },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
@@ -309,6 +321,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 }
                                 return null;
                               },
+                              onSaved: (value){
+                                userEmail = value!;
+                              },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.mail_rounded,
@@ -352,6 +367,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   return '비밀번호는 6자리 이상으로 입력해주세요.';
                                 }
                                 return null;
+                              },
+                              onSaved: (value){
+                                userPassword = value!;
                               },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
