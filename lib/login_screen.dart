@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         children: [
                           TextSpan(
-                            text: ' to Chanting app!',
+                            text: ' to Chating app!',
                             style: TextStyle(
                               letterSpacing: 1.0,
                               fontSize: 20,
