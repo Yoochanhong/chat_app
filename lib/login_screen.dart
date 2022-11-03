@@ -176,9 +176,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                   onSaved: (value) {
                                     userName = value!;
                                   },
+                                  onChanged: (value) {
+                                    userName = value;
+                                  },
                                   validator: (value) {
-                                    if (value!.isEmpty || value.length < 4) {
-                                      return '4글자 이상 입력해주세요.';
+                                    if (value!.isEmpty || value.length < 3) {
+                                      return '3글자 이상 입력해주세요.';
                                     }
                                     return null;
                                   },
@@ -221,13 +224,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                 TextFormField(
                                   key: ValueKey(2),
                                   validator: (value) {
-                                    if (value!.isEmpty || value.contains('@')) {
+                                    if (value!.isEmpty || !value.contains('@')) {
                                       return '이메일 주소를 똑바로 입력해주세요.';
                                     }
                                     return null;
                                   },
                                   onSaved: (value) {
                                     userEmail = value!;
+                                  },
+                                  onChanged: (value) {
+                                    userEmail = value;
                                   },
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
@@ -276,6 +282,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   onSaved: (value) {
                                     userPassword = value!;
                                   },
+                                  onChanged: (value) {
+                                    userPassword = value;
+                                  },
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
                                       Icons.lock,
@@ -323,7 +332,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 TextFormField(
                                   key: ValueKey(4),
                                   validator: (value) {
-                                    if (value!.isEmpty || value.contains('@')) {
+                                    if (value!.isEmpty || !value.contains('@')) {
                                       return '이메일 주소를 똑바로 입력해주세요.';
                                     }
                                     return null;
@@ -438,6 +447,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: GestureDetector(
                     onTap: () {
                       tryValidation();
+                      print(userName);
+                      print(userEmail);
+                      print(userPassword);
                     },
                     child: Container(
                       decoration: BoxDecoration(
