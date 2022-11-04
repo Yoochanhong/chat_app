@@ -53,6 +53,11 @@ class _ChatScreenState extends State<ChatScreen> {
             .snapshots(),
         builder: (BuildContext context,
             AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting){
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
           final docs = snapshot.data!.docs;
           return ListView.builder(
             itemCount: docs.length,
