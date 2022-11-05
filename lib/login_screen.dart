@@ -487,14 +487,14 @@ class _LoginScreenState extends State<LoginScreen> {
                               'email' : userEmail,
                             });
                             if (newUser.user != null) {
-                              Navigator.push(
+                              /*Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
                                     return ChatScreen();
                                   },
                                 ),
-                              );
+                              );*/
                               setState(() {
                                 showSpinner = false;
                               });
@@ -509,9 +509,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             );
                           }
                         }
-                        setState(() {
-                          showSpinner = true;
-                        });
                         if (!isSignupScreen) {
                           tryValidation();
                           try {
