@@ -2,6 +2,7 @@ import 'package:chat_app/chat_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -72,7 +73,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 5,
                       ),
                       Text(
-                        isSignupScreen ? 'Sign up continue' : 'Sign in continue',
+                        isSignupScreen
+                            ? 'Sign up continue'
+                            : 'Sign in continue',
                         style: TextStyle(
                           letterSpacing: 1.0,
                           color: Colors.black,
@@ -91,7 +94,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   curve: Curves.easeIn,
                   padding: EdgeInsets.all(20.0),
                   height: isSignupScreen ? 280 : 250,
-                  width: MediaQuery.of(context).size.width - 40,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width - 40,
                   margin: EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -142,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             GestureDetector(
                               onTap: () {
                                 setState(
-                                  () {
+                                      () {
                                     isSignupScreen = true;
                                   },
                                 );
@@ -474,6 +480,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               email: userEmail,
                               password: userPassword,
                             );
+
+                            await FirebaseFirestore.instance.collection('user').doc(
+                                newUser.user!.uid).set({
+                              'userName': userName,
+                              'email' : userEmail,
+                            });
                             if (newUser.user != null) {
                               Navigator.push(
                                 context,
@@ -521,7 +533,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 showSpinner = false;
                               });
                             }
-                          } catch (e){
+                          } catch (e) {
                             print(e);
                           }
                         }
@@ -529,7 +541,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
-                              //그랴데이션
+                            //그랴데이션
                               colors: [
                                 Colors.orange,
                                 Colors.red,
@@ -559,8 +571,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 duration: Duration(milliseconds: 500),
                 curve: Curves.easeIn,
                 top: isSignupScreen
-                    ? MediaQuery.of(context).size.height - 125
-                    : MediaQuery.of(context).size.height - 165,
+                    ? MediaQuery
+                    .of(context)
+                    .size
+                    .height - 125
+                    : MediaQuery
+                    .of(context)
+                    .size
+                    .height - 165,
                 right: 0,
                 left: 0,
                 child: Column(
