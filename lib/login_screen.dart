@@ -1,8 +1,8 @@
 import 'package:chat_app/chat_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Positioned(
                 top: 0,
                 child: Container(
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                     top: 90,
                     left: 42,
                   ),
@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       RichText(
-                        text: TextSpan(
+                        text: const TextSpan(
                           text: 'Welcome',
                           style: TextStyle(
                             letterSpacing: 1.0,
@@ -94,10 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   curve: Curves.easeIn,
                   padding: EdgeInsets.all(20.0),
                   height: isSignupScreen ? 280 : 250,
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width - 40,
+                  width: MediaQuery.of(context).size.width - 40,
                   margin: EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -111,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   child: SingleChildScrollView(
-                    padding: EdgeInsets.only(bottom: 20),
+                    padding: const EdgeInsets.only(bottom: 20),
                     child: Column(
                       children: [
                         Row(
@@ -137,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                   if (!isSignupScreen)
                                     Container(
-                                      margin: EdgeInsets.only(top: 3),
+                                      margin: const EdgeInsets.only(top: 3),
                                       height: 2,
                                       width: 55,
                                       color: Colors.orange,
@@ -148,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             GestureDetector(
                               onTap: () {
                                 setState(
-                                      () {
+                                  () {
                                     isSignupScreen = true;
                                   },
                                 );
@@ -167,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                   if (isSignupScreen)
                                     Container(
-                                      margin: EdgeInsets.only(top: 3),
+                                      margin: const EdgeInsets.only(top: 3),
                                       height: 2,
                                       width: 55,
                                       color: Colors.orange,
@@ -179,7 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         if (isSignupScreen)
                           Container(
-                            margin: EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(top: 20),
                             child: Form(
                               key: formKey,
                               child: Column(
@@ -203,7 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         Icons.account_circle,
                                         color: Colors.grey[300],
                                       ),
-                                      enabledBorder: OutlineInputBorder(
+                                      enabledBorder: const OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Colors.grey,
                                         ),
@@ -213,7 +210,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                         ),
                                       ),
-                                      focusedBorder: OutlineInputBorder(
+                                      focusedBorder: const OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Colors.grey,
                                         ),
@@ -224,14 +221,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                       ),
                                       hintText: '이름',
-                                      hintStyle: TextStyle(
+                                      hintStyle: const TextStyle(
                                         fontSize: 14,
                                         color: Colors.grey,
                                       ),
-                                      contentPadding: EdgeInsets.all(10),
+                                      contentPadding: const EdgeInsets.all(10),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 8,
                                   ),
                                   TextFormField(
@@ -255,7 +252,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         Icons.mail_rounded,
                                         color: Colors.grey[300],
                                       ),
-                                      enabledBorder: OutlineInputBorder(
+                                      enabledBorder: const OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Colors.grey,
                                         ),
@@ -265,7 +262,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                         ),
                                       ),
-                                      focusedBorder: OutlineInputBorder(
+                                      focusedBorder: const OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Colors.grey,
                                         ),
@@ -276,14 +273,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                       ),
                                       hintText: '이메일',
-                                      hintStyle: TextStyle(
+                                      hintStyle: const TextStyle(
                                         fontSize: 14,
                                         color: Colors.grey,
                                       ),
-                                      contentPadding: EdgeInsets.all(10),
+                                      contentPadding: const EdgeInsets.all(10),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 8,
                                   ),
                                   TextFormField(
@@ -306,7 +303,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         Icons.lock,
                                         color: Colors.grey[300],
                                       ),
-                                      enabledBorder: OutlineInputBorder(
+                                      enabledBorder: const OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Colors.grey,
                                         ),
@@ -316,7 +313,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                         ),
                                       ),
-                                      focusedBorder: OutlineInputBorder(
+                                      focusedBorder: const OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Colors.grey,
                                         ),
@@ -327,11 +324,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                       ),
                                       hintText: '비밀번호',
-                                      hintStyle: TextStyle(
+                                      hintStyle: const TextStyle(
                                         fontSize: 14,
                                         color: Colors.grey,
                                       ),
-                                      contentPadding: EdgeInsets.all(10),
+                                      contentPadding: const EdgeInsets.all(10),
                                     ),
                                   ),
                                 ],
@@ -340,7 +337,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         if (!isSignupScreen)
                           Container(
-                            margin: EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(top: 20),
                             child: Form(
                               key: formKey,
                               child: Column(
@@ -365,7 +362,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         Icons.mail_rounded,
                                         color: Colors.grey[300],
                                       ),
-                                      enabledBorder: OutlineInputBorder(
+                                      enabledBorder: const OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Colors.grey,
                                         ),
@@ -375,7 +372,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                         ),
                                       ),
-                                      focusedBorder: OutlineInputBorder(
+                                      focusedBorder: const OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Colors.grey,
                                         ),
@@ -386,14 +383,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                       ),
                                       hintText: '이메일',
-                                      hintStyle: TextStyle(
+                                      hintStyle: const TextStyle(
                                         fontSize: 14,
                                         color: Colors.grey,
                                       ),
-                                      contentPadding: EdgeInsets.all(10),
+                                      contentPadding: const EdgeInsets.all(10),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 8,
                                   ),
                                   TextFormField(
@@ -415,7 +412,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         Icons.lock,
                                         color: Colors.grey[300],
                                       ),
-                                      enabledBorder: OutlineInputBorder(
+                                      enabledBorder: const OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Colors.grey,
                                         ),
@@ -425,7 +422,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                         ),
                                       ),
-                                      focusedBorder: OutlineInputBorder(
+                                      focusedBorder: const OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Colors.grey,
                                         ),
@@ -436,11 +433,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                       ),
                                       hintText: '비밀번호',
-                                      hintStyle: TextStyle(
+                                      hintStyle: const TextStyle(
                                         fontSize: 14,
                                         color: Colors.grey,
                                       ),
-                                      contentPadding: EdgeInsets.all(10),
+                                      contentPadding: const EdgeInsets.all(10),
                                     ),
                                   ),
                                 ],
@@ -453,14 +450,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               AnimatedPositioned(
-                duration: Duration(milliseconds: 500),
+                duration: const Duration(milliseconds: 500),
                 curve: Curves.easeIn,
                 top: isSignupScreen ? 420 : 390,
                 right: 0,
                 left: 0,
                 child: Center(
                   child: Container(
-                    padding: EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(15.0),
                     height: 85,
                     width: 85,
                     decoration: BoxDecoration(
@@ -481,10 +478,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               password: userPassword,
                             );
 
-                            await FirebaseFirestore.instance.collection('user').doc(
-                                newUser.user!.uid).set({
+                            await FirebaseFirestore.instance
+                                .collection('user')
+                                .doc(newUser.user!.uid)
+                                .set({
                               'userName': userName,
-                              'email' : userEmail,
+                              'email': userEmail,
                             });
                             if (newUser.user != null) {
                               /*Navigator.push(
@@ -502,7 +501,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           } catch (e) {
                             print(e);
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
+                              const SnackBar(
                                 content: Text('이메일과 비밀번호를 확인해주세요.'),
                                 backgroundColor: Colors.blue,
                               ),
@@ -513,7 +512,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           tryValidation();
                           try {
                             final newUser =
-                            await authentication.signInWithEmailAndPassword(
+                                await authentication.signInWithEmailAndPassword(
                               email: userEmail,
                               password: userPassword,
                             );
@@ -537,8 +536,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            //그랴데이션
+                          gradient: const LinearGradient(
+                              //그랴데이션
                               colors: [
                                 Colors.orange,
                                 Colors.red,
@@ -555,7 +554,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ],
                         ),
-                        child: Icon(
+                        child: const Icon(
                           Icons.arrow_forward,
                           color: Colors.white,
                         ),
@@ -565,17 +564,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               AnimatedPositioned(
-                duration: Duration(milliseconds: 500),
+                duration: const Duration(milliseconds: 500),
                 curve: Curves.easeIn,
                 top: isSignupScreen
-                    ? MediaQuery
-                    .of(context)
-                    .size
-                    .height - 125
-                    : MediaQuery
-                    .of(context)
-                    .size
-                    .height - 165,
+                    ? MediaQuery.of(context).size.height - 125
+                    : MediaQuery.of(context).size.height - 165,
                 right: 0,
                 left: 0,
                 child: Column(
@@ -583,21 +576,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     Text(isSignupScreen
                         ? 'or SignUp with Google'
                         : 'or SignIn with Google'),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     TextButton.icon(
                       onPressed: () {},
                       style: TextButton.styleFrom(
                         primary: Colors.white,
-                        minimumSize: Size(130, 40),
+                        minimumSize: const Size(130, 40),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
                         backgroundColor: Colors.red[400],
                       ),
-                      icon: Icon(Icons.add),
-                      label: Text(' Google'),
+                      icon: const Icon(Icons.add),
+                      label: const Text(' Google'),
                     ),
                   ],
                 ),
